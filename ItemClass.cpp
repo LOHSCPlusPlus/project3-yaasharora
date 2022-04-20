@@ -18,6 +18,12 @@ Cereal::Cereal(){
   cupsPerServing = 0;
 }
 
+//get the number of calories
+double Cereal::getnumCalories(){
+  return numCalories;
+}
+
+//print cereals
 void Cereal::printCereal(ostream &out){
     out << name << ";";
     out << numCalories << ";";
@@ -30,6 +36,7 @@ void Cereal::printCereal(ostream &out){
     out << cupsPerServing << endl;
 }
 
+//read the list
 void Cereal::readCereal(ifstream &inFile){
     inFile.get(name, Cereal::MAX_NAME_LEN, ';');
     inFile.ignore(100,';');
@@ -52,6 +59,7 @@ void Cereal::readCereal(ifstream &inFile){
 
 }
 
+//add a cereal
 void Cereal::addCereal(){
       cout << "Name of the cereal to be added:" << endl;
       cin.ignore(11,'\n'); cin.getline(name, Cereal::MAX_NAME_LEN);
@@ -66,6 +74,3 @@ void Cereal::addCereal(){
       return;
         }
 
-double Cereal::getnumCalories(){
-  return numCalories;
-}

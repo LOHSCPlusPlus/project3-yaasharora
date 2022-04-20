@@ -2,6 +2,7 @@
 #include <fstream>
 using namespace std;
 
+//class and functions 
 class Cereal{
 public:
   Cereal();

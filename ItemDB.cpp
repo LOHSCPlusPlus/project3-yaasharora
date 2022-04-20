@@ -3,12 +3,13 @@
 #include "ItemDB.h"
 using namespace std;
 
-
+//default constructor
 cerealDB::cerealDB(){
   numCereal = 0;
   readCerealData();
 }
 
+//print all cereals
 void cerealDB::printList() {
     for (int index = 0; index < numCereal; index++) {
         cout << "Index " << index << ": ";
@@ -16,6 +17,7 @@ void cerealDB::printList() {
     }
 }
 
+//print the list after changes
 void cerealDB::printUpdatedList(const char fileName[]) {
     ofstream outFile(fileName);
     for (int index = 0; index < numCereal; index++) {
@@ -23,6 +25,7 @@ void cerealDB::printUpdatedList(const char fileName[]) {
     }
 }
 
+//read the list and returns all cereals read in
 int cerealDB::readCerealData(){
 ifstream cerealFile("cereal.txt");
     numCereal = 0;
@@ -33,11 +36,13 @@ ifstream cerealFile("cereal.txt");
     return numCereal;
   }
 
+//add a cereal
 void cerealDB::addCereal(){
       cerealList[numCereal].addCereal();
         numCereal++;
   }
 
+//return a cereal
 void cerealDB::removeCereal(){
   int removeIndex = 0;
   do {
@@ -49,6 +54,7 @@ void cerealDB::removeCereal(){
 while(removeIndex < 0 && removeIndex >= 100);
 }
 
+//prints when number of cals is less than or equal to 100
 void cerealDB::printbyCals(){
   for(int index = 0; index < numCereal; index++){
   if (cerealList[index].getnumCalories() <= 100){
@@ -57,6 +63,7 @@ void cerealDB::printbyCals(){
     }
 }
 
+//display menu where user can choose options
 void cerealDB::Menu(){
   int input = 0;  
   while(input != 7) {
@@ -65,7 +72,7 @@ void cerealDB::Menu(){
       cout << "2. Print list" << endl;
       cout << "3. Add cereal" << endl;
       cout << "4. Remove cereal" << endl;
-      cout << "5. Print cereals with less than a specific amount of cals." << endl;
+      cout << "5. Print cereals with less than/equal to 100 calories" << endl;
       cout << "6. Save list" << endl;
       cout << "7. Quit" << endl;
       cin >> input;
