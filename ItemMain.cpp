@@ -1,7 +1,9 @@
 #include <iostream>
+#include "ItemDB.h"
+#include "ReadUtils.h"
 using namespace std;
 
 int main() {
-
-    return 0;
+cerealDB callMenu;
+  callMenu.Menu();
 }
